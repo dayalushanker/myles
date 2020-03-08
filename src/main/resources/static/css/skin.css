@@ -1,0 +1,571 @@
+﻿::selection {
+    background: rgba(0, 114, 255, 0.6);
+}
+
+::-moz-selection {
+    background: rgba(0, 114, 255, 0.6);
+}
+input:focus, select:focus {
+    border-color: #ddd;
+    box-shadow: 0px 0px 4px #ccc !important;
+}
+a {
+    color: #cf2230;
+    text-decoration: none;
+}
+
+
+body { background:#fff; }
+#lt_container { 
+	background: #fff;
+}
+.lt_heading h1.heading { 	
+	color: #cf2230; 
+}
+.lt_heading .monthbox { 
+	color: #555556;
+}
+.lt_heading .monthbox span { 
+	color: #555556;
+}
+.lt_heading .monthbox select { 
+	color: #555556;
+}
+.lt_heading .breadcrumb li{ 
+	color: #cf2230; 
+}
+.lt_heading .breadcrumb li a { 
+	color: #000; 
+}
+.lt_heading .monthbox a[aria-expanded="false"]::before, a[aria-expanded="true"]::before { 
+	color: #c8c8c8;
+}
+.lt_charts_content .tenurePrice {
+  	color: #8492af; 
+}
+.lt_subscriptionTable { 
+	background: #fff; 	
+}
+/*.lt_subscriptionTable a.viewbtn {
+	color: #000; 
+}*/
+.lt_subscriptionTable .pendingbtn { 
+	background: #5cc8f6;
+}
+
+.it-datepicker-dropdown {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+}
+
+.lt_subscriptionTable .subs_reject { 
+	background: #000;
+    color: #fff;
+}
+/*-----MENU CSS--------*/
+
+.lt-menu-main,
+.lt-menu-main ul {
+	color: #5f6f81;
+}
+.lt-menu-main {
+	/*border-right: 1px solid #bbbec4;*/
+}
+.lt-menu-main a {	
+	color: #fff;
+}
+
+.lt-menu-main li.active { 
+	background: #fff; 
+}
+.lt-menu-main li.active a i, .lt-menu-main li.active a span {
+	color: #000;
+}
+
+.lt-menu-main li i { 	
+	color: #fff;
+} 
+.no-touch .lt-menu-main a:hover,
+.no-touch .lt-menu li.lt-search-item:hover,
+.no-touch .lt-menu li.lt-search-item:hover a {
+	background: #5f6f81;
+	color: white;
+}
+.lt-menu-main > li {	
+	border-right: 1px solid #c6d0da;
+}
+.lt-menu-main > li > a > i { 
+	color: #999999; 
+} 
+.lt-menu-wrapper {	
+	border-top:0;
+	background: #cf2230;
+	box-shadow: 0px 5px 10px #bababa;
+	border-right:0;
+}
+
+input.lt-search {
+	background: transparent;
+	color: #000;
+}
+/* placeholder */
+
+.lt-search::-webkit-input-placeholder {
+		color: #000;
+}
+
+.lt-search:-moz-placeholder {
+		color: #000;
+}
+
+.lt-search::-moz-placeholder {
+		color: #000;
+}
+
+.lt-search:-ms-input-placeholder {
+		color: #000;
+}
+/* hide placeholder when active in Chrome */
+.lt-search:focus::-webkit-input-placeholder,
+.no-touch .lt-menu li.lt-search-item:hover .lt-search:focus::-webkit-input-placeholder {
+	color: transparent 
+}
+
+.no-touch .lt-menu li.lt-search-item:hover input.lt-search {
+	color: #fff; 
+}
+/* placeholder */
+.no-touch .lt-menu li.lt-search-item:hover .lt-search::-webkit-input-placeholder {
+		color: #fff; 
+}
+
+.no-touch .lt-menu li.lt-search-item:hover .lt-search:-moz-placeholder {
+		color: #fff; 
+}
+
+.no-touch .lt-menu li.lt-search-item:hover .lt-search::-moz-placeholder {
+		color: #fff; 
+}
+
+.no-touch .lt-menu li.lt-search-item:hover .lt-search:-ms-input-placeholder {
+		color: #fff; 
+}
+
+
+.no-touch .lt-icon-menu:hover::before,
+.no-touch .lt-icon-menu.lt-selected:hover::before {
+		background: white;
+		box-shadow: 0 3px #5f6f81, 0 -6px white, 0 -9px #5f6f81, 0 -12px #fff;
+}
+
+.lt-icon-menu.lt-selected::before {
+		background: #5993cd;
+		box-shadow: 0 3px white, 0 -6px #5993cd, 0 -9px white, 0 -12px #5993cd;
+}
+
+/*-----MENU CSS END--------*/
+
+
+
+/*--Header CSS Start--*/
+.lt_header {
+ background: #fff; 
+ border-bottom:1px solid #bbbec4;
+ } 
+
+.lt_header .navbar-default { 
+	background: #000;
+}
+
+.lt_header .navbar-default .navbar-nav>li>a { 
+	color: #fff;
+    /*border-left: 1px solid #e3e3e3; */
+    text-transform: uppercase;
+ 
+}
+.lt_header .navbar-default .navbar-nav>li>a:hover { 
+	/*background: #f4f4f5; */
+}
+.lt_header .navbar-default .navbar-nav>li i { 
+	color: #9c9c9c; 
+}
+.lt_header .navbar-default .navbar-nav>.open>a, .lt_header .navbar-default .navbar-nav>.open>a:hover, 
+.lt_header .navbar-default .navbar-nav>.open>a:focus { 
+	background: transparent; 
+}
+.lt_header .navbar-default .navbar-nav>li>a span.notialert { 
+    background: #f58220;   
+}
+.lt_header a[aria-expanded="false"]::before, a[aria-expanded="true"]::before { 
+	color: #c8c8c8;
+}
+label{ color:#000; }
+.error {
+	color:#f00;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 767px){
+
+.lt-menu-main > li:last-child {
+	border-bottom: 1px solid #c6d0da;
+}
+
+}
+/*--Header CSS End--*/
+
+
+/*--Body Color--*/
+
+h2 { 
+	color: #020202; 
+}
+
+.lt_subscription .box { 	
+	background: #fff;
+	box-shadow: 0 0 10px #ddd; 
+}
+.lt_subscription .box.blue { 
+	border-left: 4px solid #00aeef; 
+}
+.lt_subscription .box.yellow { 
+	border-left: 4px solid #f39c12; 
+}
+.lt_subscription .box.red { 
+	border-left: 4px solid #f32c12; 
+}
+.lt_subscription .box.green { 
+	border-left: 4px solid #459f19; 
+}
+.lt_subscription .subheading { 	
+	color: #000; 
+}
+.lt_subscription .box .count { 
+	color: #000;
+}
+.lt_subscription .box .kmTime {
+	color: #b6bbb8;
+}
+.lt_subscription .lastMonth { 
+	color: #bebfc1;  
+}
+.line { 
+	border-bottom: 1px solid #ecf0f5; 
+}
+.line2 { 
+	border-bottom: 1px solid #ddd; 
+}
+.lt_chart1 { 
+	background: #fff; 
+	box-shadow: 0px 0px 10px #ccc; 
+}
+.lt_chart2 { 
+	background: #fff; 
+	box-shadow: 0px 0px 10px #ccc; 
+}
+.lt_chart3 {
+    background: #fff;
+    box-shadow: 0px 0px 10px #ccc;
+}
+.lt_chart .nav>li>a:hover, .lt_chart.nav>li>a:focus { 
+	background:none!important; 
+}
+.lt_chart .nav .open>a, .lt_chart .nav .open>a:hover, .lt_chart .nav .open>a:focus { 
+	background:none!important; 
+}
+.lt_chart .overAlls { 
+	color: #9a9b9c; 
+}
+.lt_block { 
+	background: #fff; 
+	box-shadow: 0px 0px 10px #ccc; 
+}
+
+.ltinfo { 
+	color: #333;
+	border:1px solid #ddd;	
+}
+
+.lt_subscription .carDescription { 
+	border-top: 1px solid #cfcece; 
+} 
+.lt_subscription .carDescription h4 { 
+color:#484848;  
+}
+.lt_subscription .carDescription h4 span {
+ color:#484848;  
+}
+a.damageBtn {
+	color: #283b5b;border:1px solid #283b5b;
+}
+a.damageBtn:hover {
+	background: #283b5b; color: #fff;
+}
+
+.chartDescription { 
+	border-top: 1px solid #cfcece; 
+} 
+.chartDescription h4 { 
+color:#484848;  
+}
+.chartDescription h4 span {
+ color:#878787;  
+}
+.chartDescription a.damageBtn {
+	color: #878787;border:1px solid #cfcece;
+}
+.chartDescription a.damageBtn:hover {
+	background: #f4f4f5; color: #373737;
+}
+ .lt_charts_content .tenurePrice {
+  	color: #333;
+    font-weight: 600;
+}
+.lt_subscriptionTable { 
+	background: #fff; 
+}
+.lt_subscriptionTable .table-bordered { 
+	border: 1px solid #e1e1e1;
+ }
+.lt_subscriptionTable .activebtn { 
+	color: #fff; 
+	background: #cf2230; 
+}
+/*.lt_subscriptionTable a.viewbtn {
+	color: #000; 
+}*/
+.lt_subscriptionTable .rejectebtn { 
+	background: #808080;
+	color: #fff;
+}
+.lt_subscriptionTable .pendingbtn { 
+	background: #ff7c87;
+	color: #fff;
+}
+.lt_subscriptionTable .cancelledbtn {
+    background: #ebebeb;
+    color: #000;
+}
+
+.subscriptionPopup h4.modal-title { 
+	color: #3e3e3e; 
+}
+
+.subscriptionPopup h5 { 
+	color: #575757; 
+}
+.subscriptionPopup ul.basicDetails li label svg {
+	fill:#a6a6a6;
+}
+.subscriptionPopup ul.basicDetails li label { 
+	color: #a6a6a6;    
+}
+.subscriptionPopup ul.basicDetails li span {
+	color: #575757;
+}
+.subscriptionPopup .statusbox { 
+	color: #a6a6a6;
+ }
+.red { 
+	color: #f00; 
+}
+.green { 
+	color: #8dc63f; 
+}
+.subscriptionPopup .statusbox .timehdn {
+	color: #575757;
+}
+.subscriptionPopup .contectbox {
+	border: 1px solid #ddd;
+}
+.subscriptionPopup .contectbox span {
+	color: #9a9a9a;
+}
+.table>thead>tr>th {
+	color: #000;
+}
+.table>tbody>tr>th {
+	color: #373737;
+}
+.table>thead>tr>td, .table>tbody>tr>td {
+	color: #373737;
+}
+.lt_search .searchBox .form-group label {
+	color: #000;
+}
+
+
+/*------------Search--------------*/
+
+.lt_search .searchBox { 
+	background: #fff;
+	border: 1px solid #808080;
+}
+
+.lt_search .searchBox .searchbtn {
+	background: #000;
+	color: #fff;
+}
+.form-control:focus {
+	box-shadow: 0px 0px 4px #ccc !important;
+}
+
+/*----------Filter-----------*/
+.lt_filter { 
+	background: #fff; 
+	border: 1px solid #808080;
+}
+
+.lt_filter .filterBox .filterText {
+	color: #cf2230;
+}
+ .lt_filter .filterBox:hover .filterText, .lt_filter .filterBox:hover .filterDesc { 
+	color:#000;
+ }
+.lt_filter .filterBox .filterDesc {
+	color: #000;
+}
+
+.lt_filter .priceSeats li { 
+	color: #878787;
+}
+.lt_filter .priceSeats li.active {
+	color: #283b5b;
+}
+.ui-slider-range.ui-corner-all.ui-widget-header { 
+	background: #cf2230 !important; 
+}
+
+.ui-datepicker td span, .ui-datepicker td a {  
+	
+	text-align: center !important;
+}
+.ui-datepicker td span { border:1px solid #ccc!important;background: #f8f8f8 !important; }
+.ui-datepicker td a.ui-state-default:hover {
+	background: #cf2230 !important;
+	color: #fff!important;
+}
+.ui-state-default { 
+ background: #f8f8f8 !important; 
+ border:1px solid #ccc;
+}
+
+.ui-state-default.ui-state-active {
+	background: #cf2230 !important;
+	color: #fff!important;
+	border: 1px solid #cf2230!important;
+}
+
+.ui-state-default.ui-state-highlight.ui-state-active { 
+	background: #283b5b !important;
+	color: #fff!important;
+
+}
+.ui-slider-handle.ui-corner-all.ui-state-default{
+	background: #fff !important;
+	border: 1px solid #ddd !important;
+}
+
+.filterDropDown {
+  background: #fff;
+  border: 1px solid #ddd;
+  /*box-shadow: 0 0 10px #ccc;*/
+}
+
+.filterDropDown .hdntext {
+	color: #000;
+	border-bottom: 1px solid #ddd;	
+}
+
+#amount { 
+	background: none;
+}
+
+.filterDropDown .boxin .filterList li label.labelbox {
+    color: #000;
+}
+
+.checkmark {
+    border:1px solid #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.labelbox:hover input ~ .checkmark {
+    border:1px solid #808080;
+}
+
+/* When the checkbox is checked, add a blue background */
+.labelbox input:checked ~ .checkmark {
+    border:1px solid #cf2230;
+    background: url(../../img/ltimg/tick.png) no-repeat center center #cf2230;
+}
+
+.lt_car .carBox { 
+	background: #fff;
+	border:1px solid #808080;
+}
+.lt_car .carBox .carD li {
+	color: #373737;
+}
+.lt_car .carBox .carName h4 {
+	color: #000;
+}
+.lt_car .carBox .carName h4 span {
+	color: #000;
+}
+.lt_car .carBox .priceBox {
+	color: #cf2230;	
+}
+
+.lt_car .carBox .selectBox .form-control {
+	box-shadow: none;
+	color: #484848;
+}
+
+.button {
+	border:1px solid #808080 !important;
+    color: #000;
+    background: #fff;
+}
+.button:hover {
+	border:1px solid #808080 !important;
+    color: #fff;
+    background: #000;
+}
+.loadmore .load { 
+	border: 1px solid #ccc;
+	color: #575757;
+ }
+ .loadmore .load:hover { 
+	color: #575757;
+	background: #ddd;
+ }
+.selecterror {
+    color: #ff0000;
+    border-color: #ff0000 !important;
+}
+
+.lt_search .searchBox .form-group .form-control {
+	border: 1px solid #808080;
+	color: #000;
+}
+
+.lt_subscriptionTable .greenbtn {
+    background: green;
+    color: #fff;
+}
+
+@media (max-width: 767px){
+
+.lt-menu-main > li:last-child {
+	border-bottom: 1px solid #c6d0da;
+}
+}
+
+/*--Body Color End--*/

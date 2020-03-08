@@ -1,0 +1,65 @@
+
+.lt_login h4 { 
+  margin: 0px; 
+  font-size: 16px; 
+  padding-bottom: 30px;
+}
+
+.lt_login label { 
+  font-size: 14px; 
+  font-weight:400;
+  padding-bottom: 5px;
+}
+.lt_login .form-control { 
+  border-radius: 3px; 
+  -o-border-radius: 3px; 
+  -webkit-border-radius: 3px; 
+  -moz-border-radius: 3px; 
+  height: 38px;
+  font-size: 12px;
+}
+.lt_login .error { 
+  font-size: 12px; 
+  padding: 5px 0 0 12px; 
+  display: block; 
+}
+.lt_login .forgotP { 
+  font-size: 14px;
+  display: block;
+  padding-bottom: 15px;
+}
+
+.lt_login button.button { 
+  font-size: 16px;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 12px;
+  text-align: center;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+
+}
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		-webkit-transition-delay: 9999s;
+		-webkit-transition: color 9999s ease-out, 
+		background-color 9999s ease-out;
+	}
+
+.copyright { 
+  display: block;
+  color: #fff;
+  font-size:12px;
+  text-align: center; padding-top: 20px;
+}
+
+@media (max-width:767px ){
+.lt_login { width: 380px; }
+}
+
+

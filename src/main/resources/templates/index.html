@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title th:text="${title}"></title>
+
+    <!-- Bootstrap -->
+     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.minreg.css}"/>
+     <link rel="stylesheet" type="text/css" th:href="@{/css/myleszero.css}"/>
+     <link rel="stylesheet" type="text/css" th:href="@{/css/video.css}"/>
+     <link rel="stylesheet" type="text/css" th:href="@{/css/ltfont-awesome/css/font-awesome.min.css}"/>
+     <link rel="stylesheet" type="text/css" th:href="@{/css/daterangepicker.css}"/>
+     
+     <link rel="stylesheet" type="text/css" th:href="@{/css/calender.css}"/>
+     <link rel="stylesheet" type="text/css" th:href="@{/css/video.css}"/>
+
+  </head>
+  <body>
+    <div class="mz-wrapper">
+      <header class="mz-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 col-md-3">
+
+            <a href="/" class="logo"><img th:src="@{/img/home/logo.png}" alt="Logo"></a>
+
+			</div>
+            <div class="col-sm-9 col-md-9">
+              <ul class="mz-link">
+                <li><a href="#evaluateZero">EVALUATE ZERO</a></li>
+				<li><a th:href="@{/LTemployee/dealer}">FOR DEALERS</a></li>				
+				<li><a th:href="@{/LTemployee/faq}">FAQs</a></li>			
+				<li><a th:href="@{/LTemployee/registration}" class="color-1">LOGIN | REGISTER</a></li>
+                <li><a href="#" onclick="clearerror()" data-toggle="modal" data-target="#LoginModal"><span>REQUEST A DEMO</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!--mz-header-->
+      </header><!--header-->
+      <section class="mz-banner">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <h1>Instant Car Ownership<br> with Zero</h1>
+              <span class="s-text">The car subscription program by Myles</span>
+              <div class="mz-btn">
+                <a href="#" onclick="clearerror()" class="btn" data-toggle="modal" data-target="#LoginModal">Request a Demo</a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <!---New design--->
+              <form id="SearchForm" accept-charset="utf-8" action="#" th:action="@{/search}"  method="post">
+              <div class="contactform  mc-calender">
+                <div class="form-group">
+                  <label>Select City<span class="starcolor">*</span></label>
+                  <select id="mobilecity" name="cityid"   class="form-control arrow-icon" onchange="citySelect();">
+                    <option th:each="cityid : ${cities.keySet()}" th:value="${cityid}" th:text="${cities.get(cityid)}"></option>
+                  </select>
+                </div><!--form-group-->
+
+                <div class="form-group">
+                  <label>Subscription Start Date <span class="starcolor">*</span></label>
+				  <input name="tenure_from"  class="form-control date-icon" th:value="${datefrom}" id="tenure_from" th:onchange="'getSubscription(this)'" readonly>
+                </div><!--form-group-->
+                <input type="hidden" name="tenure_to" id="tenure_to_hidden" value="" />
+				 <input type="hidden" name="clientid" id="clientid" value="2205" />
+                <div class="form-group">
+                  <label>Subscription Tenure <span class="starcolor">*</span></label>
+				    <select id="subs_tenure" name="subs_tenure" class="form-control arrow-icon" th:onchange="'getSubscription(this)'">
+                        <option th:each="tenure : ${tenures.keySet()}" th:value="${tenure}" th:text="${tenures.get(tenure)}"></option>
+                    </select>
+                </div><!--form-group-->
+
+                <div class="form-group">
+                  <label>Monthly usage Kms <span class="starcolor">*</span></label>
+                  <select id="usagekm" name="usagekm" class="form-control arrow-icon">
+                    <option th:each="km : ${kmarr.keySet()}" th:value="${km}" th:text="${kmarr.get(km)}"></option>
+				</select>
+                </div><!--form-group-->
+
+                <div class="form-group">
+                   <div class="dCenter text-center">
+                     <button th:class="H_Button" th:onclick="javascript:validate()" >Book Now</button>
+                  </div>
+                </div><!--form-group-->
+
+
+              </div><!--contactform-->
+              </form>
+              <!--New design ends-->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mz-about">
+        <div class="container">
+          <h2>Why Choose Zero?</h2>
+          <p>Zero offers hassle-free car ownership. The entire process of getting a car is streamlined via a digitized platform.
+Just search, choose and sign up for a car to drive it. Here are the benefits that make Zero the absolute choice.</p>
+          <ul class="a-list">
+            <li>
+              <span class="a-icon"><img th:src="@{/img/home/a-icon-1.png}" alt="" /></span>
+              <span class="a-text">Minimal <br>Paperwork</span>
+            </li>
+            <li>
+              <span class="a-icon"><img th:src="@{/img/home/a-icon-2.png}" alt="" /></span>
+              <span class="a-text">Tax Saving <br>Benefits</span>
+            </li>
+            <li>
+              <span class="a-icon"><img th:src="@{/img/home/a-icon-3.png}" alt="" /></span>
+              <span class="a-text">Self-service<br> Tool</span>
+            </li>
+            <li>
+              <span class="a-icon"><img th:src="@{/img/home/a-icon-4.png}" alt="" /></span>
+              <span class="a-text">No Foreclosure<br> Charges</span>
+            </li>
+            <li>
+              <span class="a-icon"><img th:src="@{/img/home/a-icon-5.png}" alt="" /></span>
+              <span class="a-text">Private Number<br> Cars</span>
+            </li> 
+          </ul>
+        </div>
+      </section>
+      <div id="evaluateZero"></div>
+      <div class="mz-blank"></div>
+      <section class="mz-subscribe" >
+        <div class="subscribe-box">
+        <div class="container">
+          <h2>Evaluate Zero</h2> 
+          <p>Buy, lease or subscribe? Do the math</p>
+          <!------------------->
+          <div class="mz-b tab-box">
+              <div class="row">
+                <div class="col-sm-3 col-md-3">
+                  <h3 class="tp20">Please choose a car type</h3>
+                </div>
+                <div class="col-sm-9 col-md-9">
+              
+                <ul class="tab-btn">
+                    <li class="clickme">
+                      <a href="javascript:void();" data-tag="Hatchback" class="car-icon1">
+                      </a>
+                      <span>Hatchback</span>
+                    </li>
+                    <li class="clickme">
+                      <a href="javascript:void();" data-tag="Sedan" class="car-icon2">
+                        <span class="car-icon2"></span>
+                      </a>
+                      <span>Sedan</span>
+                    </li>
+
+                    <li class="clickme">
+                      <a href="javascript:void();" data-tag="CompactSUV" class="car-icon4 activelink">
+                        <span class="car-icon4"></span>
+                      </a>
+                      <span>Compact SUV</span>
+                    </li>
+
+                    <li class="clickme">
+                      <a href="javascript:void();" data-tag="SUV" class="car-icon3">
+                        <span class="car-icon3"></span>
+                      </a>
+                      <span>SUV</span>
+                    </li>
+
+                    <li class="clickme">
+                      <a href="javascript:void();" data-tag="Luxury" class="car-icon6">
+                        <span class="car-icon6"></span>
+                      </a>
+                      <span>Luxury</span>
+                    </li>
+                    <li class="clickme">
+                      <a href="javascript:void();" data-tag="PremiumLuxury" class="car-icon5">
+                        <span class="car-icon5"></span>
+                      </a>
+                      <span>Premium Luxury</span>
+                    </li>
+                </ul>  
+                </div>
+              </div>  
+              <div style="clear: both;"></div>    
+          </div>
+          <!------------------->
+          <div id="" class="tabopen">            
+              <div class="tabin hide" id="Hatchback">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12">
+                    <div class="car-box">
+                        <div class="row">
+                          <div class="col-sm-3 b-rgt">
+                            <h4>Hatchback</h4>
+                            <div class="car-in">
+                              <img th:src="@{/img/home/hatchback-img.png}" alt="" />
+                            </div>
+                          </div>
+                          <div class="col-sm-9">
+                            <div class="price-per-month">Zero Subscription starting at <span class="price-bold"><span class="rupees-size">&#8377;</span><span class="finalprice">24,983</span> <span class="per-size">per month</span><span class="starb">*</span></span> including:</div>
+                            <ul class="box-list">
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon1.png}" alt="" /></span>
+                                <span class="textbox">Flexible<br/> tenure</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon2.png}" alt="" /></span>
+                                <span class="textbox">No foreclosure<br/> penalty</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon3.png}" alt="" /></span>
+                                <span class="textbox">Insurance/<br/>Maintenance</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon4.png}" alt="" />></span>
+                                <span class="textbox">Tax <br/>saving</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon5.png}" alt="" /></span>
+                                <span class="textbox">Zero <br/>downpayment</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div><!--car-box-->
+                    
+                  </div>
+                  <div class="col-sm-12 col-md-12">
+                    <div class="p-box">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Buying</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Leasing</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div><!--p-box-->
+                  </div><!--col-sm-12 col-md-12-->
+                  
+                </div>
+                <span class="average-text">*36 months average monthly subscription price</span>
+              </div>
+
+              <div class="tabin hide" id="Sedan">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12">
+                    <div class="car-box">
+                        <div class="row">
+                          <div class="col-sm-3 b-rgt">
+                            <h4>Sedan</h4>
+                            <div class="car-in">
+
+                               <img th:src="@{/img/home/sedan-img.png}" alt="" />
+                            </div>
+                          </div>
+                          <div class="col-sm-9">
+                            <div class="price-per-month">Zero Subscription starting at <span class="price-bold"><span class="rupees-size">&#8377;</span><span class="finalprice">27,524</span> <span class="per-size">per month</span><span class="starb">*</span></span> including:</div>
+                            <ul class="box-list">
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon1.png}" alt="" /></span>
+                                <span class="textbox">Flexible<br/> tenure</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon2.png}" alt="" /></span>
+                                <span class="textbox">No foreclosure<br/> penalty</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon3.png}" alt="" /></span>
+                                <span class="textbox">Insurance/<br/>Maintenance</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon4.png}" alt="" /></span>
+                                <span class="textbox">Tax <br/>saving</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon5.png}" alt="" /></span>
+                                <span class="textbox">Zero <br/>downpayment</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div><!--car-box-->
+                    
+                  </div>
+                  <div class="col-sm-12 col-md-12">
+                    <div class="p-box">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Buying</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Leasing</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div><!--p-box-->
+                  </div><!--col-sm-12 col-md-12-->
+                  
+                </div>
+                <span class="average-text">*36 months average monthly subscription price</span>
+              </div>
+              <div class="tabin" id="CompactSUV">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12">
+                    <div class="car-box">
+                        <div class="row">
+                          <div class="col-sm-3 b-rgt">
+                            <h4>Compact SUV</h4>
+                            <div class="car-in">
+                              <img th:src="@{/img/home/compact-suv.png}" alt="" />
+                            </div>
+                          </div>
+                          <div class="col-sm-9">
+                            <div class="price-per-month">Zero Subscription starting at <span class="price-bold"><span class="rupees-size">&#8377;</span><span class="finalprice">36,609</span> <span class="per-size">per month</span><span class="starb">*</span></span> including:</div>
+                            <ul class="box-list">
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon1.png}" alt="" /></span>
+                                <span class="textbox">Flexible<br/> tenure</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon2.png}" alt="" /></span>
+                                <span class="textbox">No foreclosure<br/> penalty</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon3.png}" alt="" /></span>
+                                <span class="textbox">Insurance/<br/>Maintenance</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon4.png}" alt="" /></span>
+                                <span class="textbox">Tax <br/>saving</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon5.png}" alt="" /></span>
+                                <span class="textbox">Zero <br/>downpayment</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div><!--car-box-->
+                    
+                  </div>
+                  <div class="col-sm-12 col-md-12">
+                    <div class="p-box">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Buying</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Leasing</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div><!--p-box-->
+                  </div><!--col-sm-12 col-md-12-->
+                  
+                </div>
+                <span class="average-text">*36 months average monthly subscription price</span>
+              </div>
+              <div class="tabin hide" id="SUV">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12">
+                    <div class="car-box">
+                        <div class="row">
+                          <div class="col-sm-3 b-rgt">
+                            <h4>SUV</h4>
+                            <div class="car-in">
+                              <img th:src="@{/img/home/suv-img.png}" alt="" />
+
+                            </div>
+                          </div>
+                          <div class="col-sm-9">
+                            <div class="price-per-month">Zero Subscription starting at <span class="price-bold"><span class="rupees-size">&#8377;</span><span class="finalprice">50,677</span> <span class="per-size">per month</span><span class="starb">*</span></span> including:</div>
+                            <ul class="box-list">
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon1.png}" alt="" /></span>
+                                <span class="textbox">Flexible<br/> tenure</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon2.png}" alt="" /></span>
+                                <span class="textbox">No foreclosure<br/> penalty</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon3.png}" alt="" /></span>
+                                <span class="textbox">Insurance/<br/>Maintenance</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon4.png}" alt="" /></span>
+                                <span class="textbox">Tax <br/>saving</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon5.png}" alt="" /></span>
+                                <span class="textbox">Zero <br/>downpayment</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div><!--car-box-->
+                    
+                  </div>
+                  <div class="col-sm-12 col-md-12">
+                    <div class="p-box">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Buying</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Leasing</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div><!--p-box-->
+                  </div><!--col-sm-12 col-md-12-->
+                  
+                </div>
+                <span class="average-text">*36 months average monthly subscription price</span>
+              </div>
+              <div class="tabin hide" id="Luxury">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12">
+                    <div class="car-box">
+                        <div class="row">
+                          <div class="col-sm-3 b-rgt">
+                            <h4>Luxury</h4>
+                            <div class="car-in">
+                              <img th:src="@{/img/home/luxury-img.png}" alt="" />
+              
+                            </div>
+                          </div>
+                          <div class="col-sm-9">
+                            <div class="price-per-month">Zero Subscription starting at <span class="price-bold"><span class="rupees-size">&#8377;</span><span class="finalprice">1,67,398</span> <span class="per-size">per month</span><span class="starb">*</span></span> including:</div>
+                            <ul class="box-list">
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon1.png}" alt="" /></span>
+                                <span class="textbox">Flexible<br/> tenure</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon2.png}" alt="" /></span>
+                                <span class="textbox">No foreclosure<br/> penalty</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon3.png}" alt="" /></span>
+                                <span class="textbox">Insurance/<br/>Maintenance</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon4.png}" alt="" /></span>
+                                <span class="textbox">Tax <br/>saving</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon5.png}" alt="" /></span>
+                                <span class="textbox">Zero <br/>downpayment</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div><!--car-box-->
+                    
+                  </div>
+                  <div class="col-sm-12 col-md-12">
+                    <div class="p-box">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Buying</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Leasing</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div><!--p-box-->
+                  </div><!--col-sm-12 col-md-12-->
+                  
+                </div>
+                <span class="average-text">*36 months average monthly subscription price</span>
+              </div>
+
+              <div class="tabin hide" id="PremiumLuxury">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12">
+                    <div class="car-box">
+                        <div class="row">
+                          <div class="col-sm-3 b-rgt">
+                            <h4>Premium Luxury</h4>
+                            <div class="car-in">
+                              <img th:src="@{/img/home/p-luxury-img.png}" alt="" />
+                            </div>
+                          </div>
+                          <div class="col-sm-9">
+                            <div class="price-per-month">Zero Subscription starting at <span class="price-bold"><span class="rupees-size">&#8377;</span><span class="finalprice">2,23,053</span> <span class="per-size">per month</span><span class="starb">*</span></span> including:</div>
+                            <ul class="box-list">
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon1.png}" alt="" /></span>
+                                <span class="textbox">Flexible<br/> tenure</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon2.png}" alt="" /></span>
+                                <span class="textbox">No foreclosure<br/> penalty</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon3.png}" alt="" /></span>
+                                <span class="textbox">Insurance/<br/>Maintenance</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon4.png}" alt="" /></span>
+                                <span class="textbox">Tax <br/>saving</span>
+                              </li>
+                              <li>
+                                <span class="iconbox"><img th:src="@{/img/home/n-icon1.png}" alt="" /></span>
+                                <span class="textbox">Zero <br/>downpayment</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div><!--car-box-->
+                    
+                  </div>
+                  <div class="col-sm-12 col-md-12">
+                    <div class="p-box">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Buying</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                          <div class="g-box">
+                            <div class="row">
+                              <div class="col-sm-3 col-md-3">
+                                <h5>Leasing</h5>
+                              </div>
+                              <div class="col-sm-9 col-md-9">
+                                <ul class="check-list">
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                  <li><i class="fa fa-check"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div><!--p-box-->
+                  </div><!--col-sm-12 col-md-12-->
+                  
+                </div>
+                <span class="average-text">*36 months average monthly subscription price</span>
+              </div>
+            
+             
+          </div><!--tabopen-->  
+          
+        </div><!--container-->
+        </div><!--subscribe-box-->
+      </section><!--mz-subscribe-->
+      <div class="f-demo">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-8">
+                <span class="ftext">Ready to move ahead with Zero? Enter your contact details</span>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <div class="mz-btn">
+                  <a href="#" class="btn brdr" style="box-shadow: none;" data-toggle="modal" data-target="#LoginModal">Request a Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--f-demo-->
+        <section class="f-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                <a href="/" class="logo"><img th:src="@{/img/home/logo.png}" alt="Logo"></a>
+              </div>
+              <div class="col-sm-8 col-md-8">
+                <ul class="f-link">
+                  <li><a href="<?php echo $this->request->webroot; ?>self-drive-car-rental/what-is-myles">About Myles</a></li>
+                  <li class="pd30"><a href="#" data-toggle="modal" data-target="#LoginModal">Contact Us</a></li>
+                  <li class="pd30"><a href="https://www.facebook.com/Mylescars" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/9426659" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="https://twitter.com/mylescars" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://instagram.com/mylescars" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section><!--f-footer-->
+        <section class="copy-right">
+          <span>© 2019 MG Motor India Pvt. Ltd. All rights Reserved</span>
+        </section>
+    </div><!--mz-wrepper-->
+
+  <div th:insert="ltemployee/requestdemo.html :: #repalecdemoc"> </div>
+  
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script  th:src="@{/js/jquery.min.js}" ></script>
+  <script  th:src="@{/js/video.js}" ></script>
+  <script  th:src="@{/js/bootstrap.min-reg.js}" ></script>
+  <script  th:src="@{/js/calender-ui.js}" ></script>
+    <script type="text/javascript">
+     /*<![CDATA[*/
+  const player = new Plyr('#player');
+  $(document).ready(function(){
+
+      $("#tenure_from").datepicker({dateFormat: 'dd/mm/yy',minDate: 1});
+      $('.clickme a ').click(function(){
+           $('.clickme a').removeClass('activelink');
+           $(this).addClass('activelink');
+           var tagid = $(this).data('tag');
+           $('.tabin').removeClass('active').addClass('hide');
+          $('#'+tagid).addClass('active').removeClass('hide');
+      });
+  });
+
+
+  function getSubscription() {
+       alert("xxxxx");
+ 		var dataForm = {}
+        dataForm["subs_tenure"] = $("#subs_tenure option:selected").val();
+        dataForm["tenure_from"] = $("#tenure_from").val();
+
+ 		$.ajax({
+ 			type: "POST",
+            contentType: "application/json",
+            url: "@{/getSubscription}",
+            data: JSON.stringify(dataForm),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+ 			success: function (response)
+ 			{
+ 				var data = jQuery.parseJSON(response);
+ 				$("#tenure_from").val(data.date_from);
+ 				$("#tenure_to").val(data.date_to);
+ 				$("#tenure_to_hidden").val(data.date_to);
+ 			}
+ 		});
+ 	}
+
+
+  function price(car)
+  {
+      $('#hdcar').val(car);
+      pricecal();
+  }
+
+  function duration(dur)
+  {
+      $('#hddur').val(dur);
+      $(".commondur").addClass('complete');
+      $(".commondur").removeClass("in-progress");
+      if(dur == '6m')
+      {
+        $('.6monthduration').addClass("in-progress");
+      }
+      else if(dur == '12m')
+      {
+        $('.12monthduration').addClass("in-progress");
+      }
+      else if(dur == '24m')
+      {
+        $('.24monthduration').addClass("in-progress");
+      }
+      else if(dur == '36m')
+      {
+        $('.36monthduration').addClass("in-progress");
+      }
+      pricecal();
+  }
+  function kmusage(km)
+  {
+      $('#hdkm').val(km);
+      $(".commonkm").addClass('complete');
+      $(".commonkm").removeClass("in-progress");
+      if(km == 'low')
+      {
+        $('.kmlow').addClass('in-progress');
+      }
+      else if(km == 'mod')
+      {
+        $('.kmmoderate').addClass('in-progress');
+      }
+      else if(km == 'high')
+      {
+        $('.kmhigh').addClass('in-progress');
+      }
+      pricecal();
+  }
+
+
+   function pricecal()
+   {
+       car = $('#hdcar').val();
+       hddur = $('#hddur').val();
+       hdkm = $('#hdkm').val();
+
+       $.ajax({
+         type: 'POST',
+         url: "@{__${#httpServletRequest}__/LTemployee/__pricecalc}",
+         data: {car: car,hddur:hddur,hdkm:hdkm},
+         beforeSend: function () {$("#loaderImg").hide();},
+         success: function (response)
+         {
+           $("#loaderImg").hide();
+           resarr = response.split("|");
+           $(".buyprice").html(resarr[0]);
+           $(".leaseprice").html(resarr[1]);
+           $(".subsprice").html(resarr[2]);
+         }
+         
+       });
+
+   }
+
+   function validate(){
+      alert("savvvvv");
+
+   }
+
+   function changeMe(sel)
+    {
+      sel.style.color = "#333";
+    }
+    getSubscription();
+    /*]]>*/
+ </body>
+</html>

@@ -1,0 +1,153 @@
+﻿/*
+
+
+.modelBox .modal-dialog {
+		width: 700px;
+	}
+	.modelBox .modal-content {
+		border-radius: 0px;
+	}
+	.modelBox .modal-header {
+		padding: 0px;
+	}
+	.modelBox .modal-body {
+		height: auto;
+		padding:20px 20px 20px 20px;
+	}
+	.modelBox .modal-header .close {
+		padding: 15px;
+	}
+	.modelBox .form-group {
+		position: relative;
+	}
+	
+	.wdh {
+		width: 100%;
+	}
+	.bg-fill {
+		    background: #000;
+		    color: #fff;
+		    padding: 10px;
+		    text-align: center;
+		    display: block;
+	}
+	.login-btn2 {
+		display: block;
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+	}
+	.login-btn2 li {
+		display: inline-block;
+	}
+	.login-btn2 li a {
+		display: block;
+		font-size: 14px;
+		color: #000;
+		padding: 15px 15px;
+		cursor: pointer;
+		text-decoration: none;
+		border: 2px solid $black-color;
+	}
+	.login-btn2 li.active a {
+		border-bottom: 2px solid #cf2230;
+		color: #cf2230;
+	}
+	/*.bg-box {
+		background: url(../../img/ltimg/login-img.png) center top;
+		background-size: cover;
+	}
+
+	.registerbox {
+		display: none;
+	}
+
+	.dblock {
+		display: inline-block;
+	}
+	.t-11 {
+		display: block;
+    	font-size: 12px;
+    	line-height: 18px;
+    	padding-bottom: 15px;
+	}
+	.mandatory {
+		color: #f00;
+	}
+	.forgotP {
+		font-size: 12px;
+		position: relative;
+		display: block;
+	}
+	.rgtrtext {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.rgtrtext2 {
+		position: relative;
+		font-size: 12px;
+	}
+	.std-code {
+	    position: absolute;
+	    top: 1px;
+	    left: 1px;
+	    font-size: 12px;
+	    background: #f8f8f8;
+	    padding: 7px 10px;
+	    bottom: 1px;
+	    border-radius: 5px 0 0 5px;
+	    border-right: 1px solid #808080;
+	}
+	.pd55 {
+		   padding-left: 50px
+	}
+	.agreetext {
+		font-size: 12px;
+	}
+	.error {
+		padding-bottom: 10px;
+	}
+	.green {
+		font-size: 12px;
+		padding-bottom: 10px;
+	}
+	.r-p {
+		display: block;
+		color: #000;
+		font-size: 14px;
+		padding-bottom: 20px;
+		font-weight: 400;
+	}
+
+	.b-backbtn {
+		display: block;
+		text-align: center;
+		padding: 10px;
+
+	}
+	.b-backbtn a {
+		font-size: 12px;
+	}
+
+
+	.loaderImg {
+		z-index: 9999;
+		position: absolute;
+		display: none;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin: 0 auto;
+		background: rgba(255,255,255,0.6);
+		}
+		.loaderImg img {
+		width: 40px;
+		display: block;
+		margin: 0 auto;
+		top: 45%;
+		position: relative;
+	}
+
+*/

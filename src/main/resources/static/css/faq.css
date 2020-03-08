@@ -1,0 +1,136 @@
+
+.mz-faqs{
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+.mz-faqs .maintitle {
+  font-size: 20px;
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0px;
+  line-height: 12px;
+}
+.mz-faqs .subtitle {
+  font-size: 16px;
+  text-align: left;
+  font-weight: 300;
+  margin-top: 10px;
+}
+ul.tabs {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  border-bottom: 1px solid #d7d7d7;
+  margin-top: 20px;
+}
+ul.tabs li{
+  background: none;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 20px;
+}
+ul.tabs li:first-child {
+  margin-left: 0px;
+}
+ul.tabs li:hover {
+  color: #e04627;
+}
+ul.tabs li:active, ul.tabs li:focus {
+  border-bottom: 1px solid #e04627;
+  color: #e04627;
+}
+.tab-content{
+  display: none;
+  padding: 15px 0px 0px 0px;
+  text-align: justify;
+  border-bottom: 1pt solid #d7d7d7;
+  padding-bottom: 20px;
+}
+.tab-link.current{
+  border-bottom: 1px solid #e04627;
+  color: #e04627;
+  font-weight: 600;
+}
+.tab-content.current{
+  display: inherit;
+}
+.mz-faqs button.accordion {
+  cursor: pointer;
+  padding: 0px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+  background: white;
+  font-weight: 600;
+  border-top: 1pt solid #d7d7d7;
+  margin: 18px 0px 0px 0px;
+  padding: 18px 0px 0px 0px;
+  color:#575757;
+}
+.mz-faqs button.accordion:before {
+  content: '\02795';
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 10px;
+  color: #e04627;
+}
+.mz-faqs button.accordion.active:before {
+  content: "\2796";
+  margin-right: 10px;
+  color:#e04627;
+}
+.mz-faqs div.panel p, .mz-faqs div.panel li{
+  margin-bottom: 0px;
+  margin-left: 12px;
+  color: #575757;
+  text-align: justify;
+  font-size: 14px; 
+  padding-top: 10px;
+  padding-left: 4px;
+}
+.mz-faqs div.panel ul{
+  margin-left: 18px;
+  margin-top: 10px; 
+}
+.mz-faqs div.panel { 
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.6s ease-in-out;
+  opacity: 0;
+}
+.mz-faqs div.panel.show {
+  opacity: 1;
+  max-height: 500px;
+}
+.fixedbox {
+  position: fixed;
+  left: 0px;
+  right: 0;
+  bottom: 0;
+}
+.b-bottom {
+  border:1px solid #f8f8f8;
+}
+.copy-right {
+    display: block;
+    background: #ebebeb;
+    padding: 15px;
+    font-size: 17px;
+    color: #404041;
+    font-weight: 600;
+    text-align: center;
+}
+.mzFaqBox {
+  padding-bottom: 90px;
+}
+.tab-content {
+  border:0px;
+}

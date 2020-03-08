@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /usermanagements/login
+Disallow: /usermanagements/forgot_password
+Disallow: /usermanagements/register
+Disallow: /pages/pickup_locations/*
+Disallow: ?PageSpeed=noscript
+Disallow: /self-drive-car-rental-in-*
+Disallow: /book-self-drive-car-in-*
+Disallow: /hire-self-drive-car-in-*
+Disallow: /car-for-self-drive-in-*
+Disallow: /rent-self-drive-car-in-*
+Disallow: /car-rental-in-*
+Disallow: /rent-a-car-in-*
+Disallow: /car-hire-in-*
+Disallow: /locality/*
+Disallow: /carmodel/*
+Disallow: /*tag*
